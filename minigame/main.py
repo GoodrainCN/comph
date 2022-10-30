@@ -1,7 +1,6 @@
 import pygame
 import time
 import random
-from ene import *
 
 
 pygame.init()
@@ -27,9 +26,6 @@ tank_width = 250
 
 shellImg = pygame.image.load('Heavy_Shell.png')
 targetImg = pygame.image.load('img/target.png')
-
-enemy = GameSprite("leopard.png")
-enemy_group = pygame.sprite.Group(enemy)
 # tank_pos = pygame.Rect(0,0,250,104)
 
 def text_objects(text, font):
@@ -43,9 +39,7 @@ def message_display(text):
     gameDisplay.blit(TextSurf, TextRect)
 
     pygame.display.update()
-
     time.sleep(2)
-
     game_loop()
 
 def button(msg,x,y,w,h,ic,ac,action=None):
@@ -103,8 +97,6 @@ def target(x,y):
     target_rect = targetImg.get_rect()
     target_rect.x = x
     target_rect.y = y
-    # target_rect.x = 850
-    # target_rect.y = random.randint(0, display_height)
     gameDisplay.blit(targetImg, target_rect)    
     
 def things(thingx, thingy, thingw, thingh, color):
@@ -115,8 +107,6 @@ def quitgame():
     quit()
 
 def game_loop():
-    # x = (display_width * 0.45)
-    # y = (display_height * 0.8)
     x=0
     y=480
     shell_x = x + tank_width
