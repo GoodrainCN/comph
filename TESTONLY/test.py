@@ -44,6 +44,12 @@ quit_button = button.Button(SCREEN_WIDTH/2 - (quit_img.get_width()/2), 375, quit
 keys_button = button.Button(400, 325, keys_img, 1)
 back_button = button.Button(400, 450, back_img, 1)
 
+
+# def slider_scene():
+#   not_selected = True
+#   while not_selected:
+        
+
 def draw_text(text, font, text_col, x, y):
   img = font.render(text, True, text_col)
   screen.blit(img, (x, y))
@@ -95,8 +101,6 @@ def first_scene():
       pygame.display.update()
       if i == len(x_data)-1:
             break
-  
-
 
 #game loop
 game_start = False
@@ -126,7 +130,7 @@ while run:
     elif menu_state == "scene":
       first_scene()
   else:
-    draw_text("Press SPACE to START", font, TEXT_COL, 160, 250)
+    draw_text("Press SPACE to START", font, TEXT_COL, 250, 250)
 
   #event handler
   for event in pygame.event.get():

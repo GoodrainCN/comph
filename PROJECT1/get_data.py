@@ -54,7 +54,7 @@ class Coil:
     def __init__(self):
         self.turn = 200
         self.length = 0.1 #m
-        self.ampere = 25000 #A #Current #1000-50000
+        self.ampere = 35000 #A #Current #1000-50000
         self.radius = 1 #m
     def modify_coil(self,turn=100,length=1,radius=1):
         self.turn = turn
