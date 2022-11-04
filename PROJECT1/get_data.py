@@ -85,8 +85,9 @@ class simulation:
     def update_current(self, ampere=1):
         self.ampere = ampere
     
-    def get_magnetic_induction(self,ampere,radius):
-        self.B = (self.mu * ampere) / (2 * np.pi * radius)
+    def get_magnetic_induction(self,ampere,length=0.1,turn=200):
+        # self.B = (self.mu * ampere) / (2 * np.pi * radius)
+        self.B = self.mu * (length / turn) * ampere
         return self.B
     
     def get_ampere_force(self,B,ampere,length):
@@ -120,7 +121,7 @@ def run(ampere=None):
     vel = object.get_velocity()
     acc = object.get_acc()
     
-    turns = coil.get_turns()
+    turn = coil.get_turns()
     length = coil.get_length()
     if ampere == None:
         ampere = coil.get_ampere()
@@ -137,7 +138,7 @@ def run(ampere=None):
         X_DATA.append(pos)
         Y_DATA.append(object.get_y())
         
-        MI = sim.get_magnetic_induction(ampere,radius)
+        MI = sim.get_magnetic_induction(ampere,length,radius)
         AF = sim.get_ampere_force(MI,ampere,length)
         
         object.update_acc(AF,object.mass)
