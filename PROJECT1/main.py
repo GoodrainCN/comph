@@ -226,7 +226,7 @@ while run:
         temp = slider_scene()
         timess = 1
       else:
-        first_scene(temp)
+            first_scene(temp)
   else:
     draw_text("Press SPACE to START", font, TEXT_COL, 250, 250)
 
