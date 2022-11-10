@@ -52,7 +52,7 @@ def pointInRectanlge(px, py, rw, rh, rx, ry):
 
 #Blueprint to make sliders in the game
 class Slider:
-    def __init__(self, position:tuple, upperValue:int=50000, sliderWidth:int = 30, text:str="Editing features for simulation",
+    def __init__(self, position:tuple, upperValue:int=50000, sliderWidth:int = 30, text:str="Current Magnitude for Simulation (A)",
                  outlineSize:tuple=(300, 100))->None:
         self.position = position
         self.outlineSize = outlineSize
@@ -97,7 +97,6 @@ class Slider:
             if pygame.mouse.get_pressed()[0]:
                 #the size of the slider
                 self.sliderWidth = mousePos[0] - self.position[0]
-
                 #limit the size of the slider
                 print(self.sliderWidth)
                 # if self.sliderWidth == 0:
@@ -144,24 +143,37 @@ def draw_ball(x,y):
 def first_scene(new_ampere=None):
   temp = new_ampere
   temp = "Ampere: " + str(temp)
-  draw_text("COILGUN", font, TEXT_COL, 100, 25)
+  draw_text("1 UNIT COILGUN", font, TEXT_COL, 100, 25)
   draw_text("Press f to simulate", small_font, TEXT_COL, 150, 600)
-  draw_text(temp, small_font, TEXT_COL, 150, 550)
+  draw_text(temp, small_font, TEXT_COL, 150, 500)
   draw_text("Press q to quit", small_font, TEXT_COL, 150, 650)
+  draw_text("Press b to go back", small_font, TEXT_COL, 150, 550)
   screen.blit(coil_img, (100,150))
   
     #event handler
   simu_start = False
   quit_game = False
+  printXY = False
+  global go_back
+  go_back = False
   for event in pygame.event.get():
     print(event)
     if event.type == pygame.KEYDOWN:
+      if event.key == pygame.K_b:
+        go_back = True
+        break
       if event.key == pygame.K_f:
         simu_start = True
         print("f pressed")
       if event.key == pygame.K_q:
           quit_game = True
           print("game quit")
+  if go_back:
+    menu_state == "main"
+    print(
+      'return'
+    )
+    return
   if quit_game:
         quitgame()
   if simu_start == True:
@@ -180,8 +192,8 @@ def first_scene(new_ampere=None):
     y_d = y_data[-1] - 50
     x_st = "x: " + str(round(x_d)) + "m"
     y_st = "y: " + str(round(y_d)) + "m"
-    draw_text(x_st, small_font, TEXT_COL, 600, 600)
-    draw_text(y_st, small_font, TEXT_COL, 600, 650)
+    # draw_text(x_st, small_font, TEXT_COL, 600, 600)
+    # draw_text(y_st, small_font, TEXT_COL, 600, 650)
     pygame.display.update()
     for i in range(0,len(x_data)):
       temp_x = x_data[i]
@@ -191,9 +203,15 @@ def first_scene(new_ampere=None):
       pygame.display.update()
       if i == len(x_data)-1:
         break
+    printXY = True
+  if printXY:
+    draw_text(x_st, small_font, TEXT_COL, 600, 600)
+    draw_text(y_st, small_font, TEXT_COL, 600, 650)
+    pygame.display.update()
 
 #game loop
 game_start = False
+go_back = False
 run = True
 timess = 0
 while run:
@@ -219,14 +237,19 @@ while run:
       draw_text("First use the slide bar to select value of ampere", small_font, TEXT_COL, 100, 100)
       draw_text("Press C to confirm your selection", small_font, TEXT_COL, 100, 125)
       draw_text("Press F to start the simulation", small_font, TEXT_COL, 100, 150)
+      draw_text("Press B to go back to restart the simulation program", small_font, TEXT_COL, 100, 175)
       if back_button.draw(screen):
         menu_state = "main"
     elif menu_state == "scene":
       if timess == 0:
         temp = slider_scene()
         timess = 1
+      if go_back == True:
+        menu_state = "main"
+        go_back = False
+        timess = 0
       else:
-            first_scene(temp)
+        first_scene(temp)
   else:
     draw_text("Press SPACE to START", font, TEXT_COL, 250, 250)
 
