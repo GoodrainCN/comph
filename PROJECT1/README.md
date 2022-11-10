@@ -37,8 +37,8 @@ $L=\dfrac{\mu N^{2}A}{l}$
 
 μ = Permeability (Wb/Am)  
 N = The coil’s number of turns  
-A = The coil’s cross sectional area 
-l = Length of coil (m)
+A = The coil’s cross sectional area   
+l = Length of coil (m)  
 
 
 Kinetic Energy  
@@ -67,5 +67,13 @@ The greater magnitude of current, the object will have greater average velocity.
 
 ![velocity](markdown_img\Velocity.png)
 
-The 
+
+#### Energy
+The eletrical energy when the device is fully charged is about 628318530J when the current is 10000 A. The kinetic energy of the object when it pass through is about 0.2 J.
+
+### Conclusion
+
+The energy conversation is very poor in this CoilGun design. 
+
+The relationship between the magnitude of current and average velocity is increasing exponentially. The greater magnitude of current, the object will have greater average velocity. 
 
