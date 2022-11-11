@@ -29,6 +29,7 @@ action” between current carrying circuits
 through magnetic field.  
 Assume the magnetic filed is uniform...  
 $F=BIL$  
+
 ![](Amperes.png)
 
 
@@ -46,6 +47,7 @@ l = Length of coil (m)
 
 
 Kinetic Energy  
+
 Kinetic Energy refers to The energy possessed by an object in mechanical motion.  
 $E_{k}=\dfrac{1}{2}mv^{2}$  
 m = mass (kg)  
