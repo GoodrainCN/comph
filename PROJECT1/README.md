@@ -15,11 +15,11 @@ solenoid is determined by a number of
 turns per length n and current I (no
 core):  
 
-$ \oint \overrightarrow{B}\cdot dl=\mu _{0}I$  
+$\oint \overrightarrow{B}\cdot dl=\mu _{0}I$  
 
 Shortened as  
 
-$ B=\mu _{0}nI$  
+$B=\mu _{0}nI$  
 
 Assume the potential difference in the circuit is stable...
 
@@ -28,7 +28,7 @@ Ampere’s law of force is the “law of
 action” between current carrying circuits
 through magnetic field.  
 Assume the magnetic filed is uniform...  
-$ F=BIL$  
+$F=BIL$  
 ![](markdown_img\Amperes.png)
 
 
