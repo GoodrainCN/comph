@@ -120,6 +120,7 @@ def slider_scene():
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_c:
+                print('c pressed')
                 not_selected = False
                 break
     #print(slider.getValue())

@@ -21,10 +21,10 @@ pygame.display.set_caption('Tank Simulation')
 clock = pygame.time.Clock()
 
 crashed = False
-tankImg = pygame.image.load('TE_Karrar.png')
+tankImg = pygame.image.load('img/TE_Karrar.png')
 tank_width = 250
 
-shellImg = pygame.image.load('Heavy_Shell.png')
+shellImg = pygame.image.load('img/Heavy_Shell.png')
 targetImg = pygame.image.load('img/target.png')
 # tank_pos = pygame.Rect(0,0,250,104)
 
